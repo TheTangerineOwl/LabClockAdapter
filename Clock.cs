@@ -41,11 +41,10 @@ namespace Clock
         }
 
 
-        public AnalogClock(int hours = 0, int minutes = 0)
+        public AnalogClock(int hoursHand = 0, int minuteHand = 0)
         {
-            
-            HourHand = 30 * hours;
-            MinHand = 6 * minutes;
+            HourHand = hoursHand;
+            MinHand = minuteHand;
         }
 
         protected void Clockface()
@@ -54,13 +53,13 @@ namespace Clock
             Console.WriteLine($"Аналоговые часы показывают {HourHand / 30:D2}:{MinHand / 6:D2}, отклонения стрелок {HourHand} и {MinHand}");
         }
 
-        protected void Tick(int min)
+        protected void Tick(int angle)
         {
-            MinHand += 6 * min;
+            MinHand += angle;
         }
     }
 
-    public class AnalogToTime(int hours = 0, int minutes = 0) : AnalogClock(hours, minutes), IClock
+    public class AnalogToTime(int hours = 0, int minutes = 0) : AnalogClock(hours * 30, minutes * 6), IClock
     {
         public void GetTime()
         {
@@ -69,7 +68,7 @@ namespace Clock
 
         public void TickMin(int min)
         {
-            Tick(min);
+            Tick(min * 6);
         }
     }
 }
