@@ -41,7 +41,7 @@ namespace Clock
             }
         }
 
-        public DigitalClock(int hours = 0, int minutes = 0)
+        protected DigitalClock(int hours = 0, int minutes = 0)
         {
             HH = hours;
             MM = minutes;

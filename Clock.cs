@@ -41,7 +41,7 @@ namespace Clock
         }
 
 
-        public AnalogClock(int hoursHand = 0, int minuteHand = 0)
+        protected AnalogClock(int hoursHand = 0, int minuteHand = 0)
         {
             HourHand = hoursHand;
             MinHand = minuteHand;
